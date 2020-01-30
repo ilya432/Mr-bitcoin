@@ -38,6 +38,9 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 // app.use('/api/contact', contactRoutes)
+app.get('/*', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'public/index.html'))
+})
 connectSockets(io)
 
 
